@@ -1,0 +1,263 @@
+/* Style definition for sketchy pricing table cards */
+
+:root {
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --bg-color: #faf8f5;
+  --card-bg: #ffffff;
+  --color-accent: #ef5b4c;
+  --color-text-main: #1a1a1a;
+  --color-text-muted: #555555;
+  --border-color: #1a1a1a;
+  --shadow-color: #e2e2da;
+  --transition-speed: 0.2s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--color-text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+/* Pricing Section Container */
+.pricing-section {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Cards Wrapper */
+.pricing-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Individual Card Styling */
+.card {
+  background-color: var(--card-bg);
+  border: 2.5px solid var(--border-color);
+  width: 100%;
+  max-width: 330px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+/* Specific Asymmetric Border Radii for Sketchy Look */
+.card-1 {
+  border-radius: 20px 24px 22px 20px / 24px 20px 20px 24px;
+}
+
+.card-2 {
+  border-radius: 22px 20px 24px 22px / 20px 22px 24px 20px;
+}
+
+.card-3 {
+  border-radius: 24px 22px 20px 24px / 22px 24px 20px 22px;
+}
+
+/* Featured / Popular Card Highlight */
+.card--popular {
+  padding: 48px 30px;
+  box-shadow: 8px 8px 0px var(--shadow-color);
+  z-index: 2;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0px var(--border-color);
+}
+
+.card--popular:hover {
+  transform: translateY(-4px);
+  box-shadow: 10px 10px 0px var(--border-color);
+}
+
+/* Popular Badge */
+.popular-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-accent);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px 6px 8px 6px / 6px 8px 6px 8px;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+/* Card Header Contents */
+.card-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--color-text-main);
+  text-align: center;
+}
+
+.card-price-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.price {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.price--accent {
+  color: var(--color-accent);
+}
+
+.currency {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.period {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 4px;
+  color: var(--color-text-main);
+  align-self: flex-end;
+  padding-bottom: 6px;
+}
+
+.card-description {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.45;
+  max-width: 220px;
+}
+
+/* Hand-Drawn Wavy Divider Line */
+.card-divider {
+  width: 100%;
+  height: 10px;
+  margin: 24px 0;
+  display: block;
+}
+
+/* Feature List */
+.feature-list {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 32px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-main);
+}
+
+.feature-check {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-main);
+  flex-shrink: 0;
+}
+
+/* Card Button Styling */
+.card-button {
+  width: 100%;
+  padding: 13px 20px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: var(--color-text-main);
+  border: 2px solid var(--border-color);
+  border-radius: 10px 14px 10px 12px / 14px 10px 12px 10px;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.card-button--accent {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.card-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--border-color);
+}
+
+.card-button--accent:hover {
+  background-color: #e04a3b;
+}
+
+/* Active Button Click States */
+.card-button:active {
+  transform: translate(0px, 0px);
+  box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1050px) {
+  .pricing-cards {
+    gap: 36px;
+  }
+  .card--popular {
+    order: -1; /* Place popular card first on smaller screens for emphasis */
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 40px 16px;
+  }
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .card {
+    max-width: 320px;
+  }
+  .card--popular {
+    order: 0;
+    margin: 0;
+  }
+}

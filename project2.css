@@ -1,0 +1,357 @@
+/* Custom Stylesheet for Sketchy Portfolio Mockup */
+
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+:root {
+  --bg-color: #faf9f6; /* Paper-like off-white background */
+  --ink-color: #1a1a1a; /* Dark charcoal/ink color */
+  --highlight-color: #fef08a; /* Yellow highlighter effect */
+  --text-muted: #5b5b5b; /* Gray text for teacher names/roles */
+  --font-family: 'Architects Daughter', 'Comic Sans MS', cursive, sans-serif;
+  --transition-speed: 0.25s;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--ink-color);
+  line-height: 1.5;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Main Container */
+.portfolio-container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Irregular filled black box logo */
+.logo-box {
+  width: 32px;
+  height: 32px;
+  background-color: var(--ink-color);
+  border-radius: 8px 14px 10px 12px / 14px 10px 12px 8px;
+  transition: transform var(--transition-speed) ease;
+}
+
+.logo-container:hover .logo-box {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Navigation Links */
+.nav-links {
+  font-size: 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--ink-color);
+  text-decoration: none;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.nav-link:hover {
+  background-color: var(--highlight-color);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: normal;
+  letter-spacing: -1px;
+}
+
+.hero-subtitle {
+  font-size: 22px;
+  color: #7c7c7c;
+}
+
+/* Double horizontal lines to replicate the sketchy line divider */
+.double-divider {
+  position: relative;
+  height: 8px;
+  margin: 10px 0 40px 0;
+}
+
+.double-divider::before,
+.double-divider::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--ink-color);
+}
+
+.double-divider::before {
+  top: 0;
+  border-radius: 120px 20px 100px 30px / 3px 2px 3px 2px;
+}
+
+.double-divider::after {
+  bottom: 0;
+  border-radius: 30px 120px 20px 100px / 2px 3px 2px 3px;
+}
+
+/* Single divider line */
+.single-divider {
+  position: relative;
+  height: 2px;
+  background-color: var(--ink-color);
+  margin: 40px 0;
+  border-radius: 120px 20px 100px 30px / 3px 2px 3px 2px;
+}
+
+/* Sketchy Grid Layout */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-left: 2px solid var(--ink-color);
+  border-right: 2px solid var(--ink-color);
+  border-bottom: 2px solid var(--ink-color);
+  border-radius: 4px 6px 4px 6px / 6px 4px 6px 4px; /* subtle wobble on container */
+}
+
+/* Column styles */
+.grid-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Column vertical separators */
+.grid-col:not(:last-child) {
+  border-right: 2px solid var(--ink-color);
+}
+
+/* Left Column - Projects */
+.projects-header {
+  font-size: 26px;
+  padding: 16px 20px;
+  border-bottom: 2px solid var(--ink-color);
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-item {
+  font-size: 18px;
+  padding: 16px 20px;
+  color: var(--ink-color);
+  text-decoration: none;
+  transition: background-color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
+}
+
+.project-item:not(:last-child) {
+  border-bottom: 2px solid var(--ink-color);
+}
+
+.project-item:hover {
+  background-color: var(--highlight-color);
+  padding-left: 26px;
+}
+
+/* Middle Column - Work Experience & Open Source */
+.work-box,
+.opensource-box {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.work-box {
+  border-bottom: 2px solid var(--ink-color);
+}
+
+.box-title {
+  font-size: 26px;
+  font-weight: normal;
+}
+
+.company-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.box-desc {
+  font-size: 18px;
+}
+
+.profile-link {
+  color: #0284c7; /* Blue link matching picture */
+  text-decoration: underline;
+  font-size: 18px;
+  align-self: flex-start;
+  transition: color var(--transition-speed) ease;
+}
+
+.profile-link:hover {
+  color: #0369a1;
+}
+
+/* Right Column - Education */
+.education-box {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.education-title {
+  font-size: 26px;
+}
+
+.education-desc {
+  font-size: 18px;
+}
+
+.courses-title {
+  font-size: 20px;
+}
+
+.courses-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.course-item {
+  font-size: 18px;
+}
+
+/* Reviews Section */
+.reviews-section {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.reviews-title {
+  font-size: 28px;
+  font-weight: normal;
+}
+
+.reviews-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+/* Irregular rounded feedback cards */
+.review-card {
+  flex: 1;
+  border: 2px solid var(--ink-color);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  background-color: #ffffff;
+  
+  /* Very sketchy oval-like borders */
+  border-radius: 50px 30px 45px 35px / 30px 45px 30px 50px;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.review-card:nth-child(even) {
+  border-radius: 35px 50px 30px 45px / 45px 30px 50px 30px;
+}
+
+.review-card:hover {
+  transform: translateY(-5px) rotate(-1deg);
+  box-shadow: 6px 6px 0px var(--ink-color);
+}
+
+.review-quote {
+  font-size: 18px;
+  font-style: italic;
+}
+
+.review-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.author-name {
+  color: var(--text-muted);
+  font-size: 17px;
+}
+
+.author-role {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    border-top: 2px solid var(--ink-color);
+  }
+  
+  .grid-col:not(:last-child) {
+    border-right: none;
+    border-bottom: 2px solid var(--ink-color);
+  }
+
+  .project-item:last-child {
+    border-bottom: 2px solid var(--ink-color);
+  }
+
+  .reviews-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+}
