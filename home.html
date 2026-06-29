@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srijon Chawley - Resume</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Modern Design Tokens */
+        :root {
+            --primary-purple: #7030a0;
+            --primary-purple-hover: #5a2582;
+            --table-blue: #1e70e0;
+            --bg-light-purple: #eae2f8;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #dddddd;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --body-bg: #f5f6fa;
+            --paper-bg: #ffffff;
+            --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        /* Dark Mode Tokens */
+        [data-theme="dark"] {
+            --primary-purple: #a855f7;
+            --primary-purple-hover: #c084fc;
+            --table-blue: #3b82f6;
+            --bg-light-purple: #2e1065;
+            --text-dark: #f3f4f6;
+            --text-light: #9ca3af;
+            --border-color: #374151;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --body-bg: #0b0f19;
+            --paper-bg: #111827;
+        }
+
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--body-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        /* Web Controls / Toolbar */
+        .toolbar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 820px;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--paper-bg);
+            padding: 12px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .toolbar-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-purple);
+            letter-spacing: -0.5px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: var(--font-family);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-purple);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-purple-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-light-purple);
+            color: var(--primary-purple);
+        }
+
+        .btn-secondary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Resume A4 Paper Container */
+        .resume-container {
+            background-color: var(--paper-bg);
+            width: 100%;
+            max-width: 820px; /* A4 width */
+            min-height: 1160px; /* A4 height */
+            padding: 45px 50px;
+            box-shadow: 0 8px 30px var(--shadow-color);
+            border-radius: 4px;
+            position: relative;
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        /* Resume Header Block */
+        .resume-header {
+            background-color: var(--primary-purple);
+            color: #ffffff;
+            padding: 24px 20px;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(112, 48, 160, 0.15);
+        }
+
+        .resume-header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contact-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.3);
+            margin: 12px auto;
+            width: 95%;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px 25px;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Precise reproduction of the custom square icon in the image */
+        .contact-square {
+            width: 8px;
+            height: 8px;
+            background-color: #ffffff;
+            display: inline-block;
+            flex-shrink: 0;
+            border-radius: 1px;
+        }
+
+        .contact-text {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Resume Sections */
+        .resume-section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            color: var(--primary-purple);
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: color var(--transition-speed);
+        }
+
+        /* Text Block Styling */
+        .objective-text {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* Tables styling */
+        .qualification-table, .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 0.92rem;
+        }
+
+        /* Educational Table Specifics */
+        .qualification-table th {
+            background-color: var(--table-blue);
+            color: #ffffff;
+            text-align: left;
+            padding: 8px 12px;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+        }
+
+        .qualification-table td {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .qualification-table tbody tr:hover {
+            background-color: rgba(30, 112, 224, 0.04);
+        }
+
+        /* Technical Skills & Strengths Lists */
+        .skills-list, .strengths-list {
+            list-style: none;
+            padding-left: 5px;
+            margin-top: 6px;
+        }
+
+        .skills-list li, .strengths-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        /* Square bullet matching original */
+        .skills-list li::before, .strengths-list li::before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background-color: var(--text-dark);
+            border-radius: 1px;
+        }
+
+        /* Personal Details Table Specifics */
+        .details-table td {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        .details-table .label-col {
+            background-color: var(--bg-light-purple);
+            color: var(--text-dark);
+            font-weight: 700;
+            width: 32%;
+            transition: background-color var(--transition-speed);
+        }
+
+        .details-table .value-col {
+            color: var(--text-dark);
+            width: 68%;
+        }
+
+        .details-table tbody tr:hover {
+            background-color: rgba(112, 48, 160, 0.02);
+        }
+
+        /* Declaration Section */
+        .declaration-text {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* Signature block matching original footer placement */
+        .signature-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 35px;
+            font-size: 0.95rem;
+        }
+
+        .signature-left {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .signature-right {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+        }
+
+        .signature-line {
+            font-weight: 700;
+        }
+
+        .signature-subtext {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Print styles - ensures A4 page styling */
+        @media print {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+                padding: 0;
+                margin: 0;
+            }
+
+            .toolbar {
+                display: none !important;
+            }
+
+            .resume-container {
+                max-width: 100%;
+                box-shadow: none;
+                padding: 0;
+                min-height: auto;
+            }
+
+            .resume-header {
+                box-shadow: none;
+                border: 1px solid #7030a0;
+                background-color: #7030a0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .contact-square {
+                background-color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .qualification-table th {
+                background-color: #1e70e0 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .details-table .label-col {
+                background-color: #eae2f8 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* Responsive Layout adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .resume-container {
+                padding: 25px 20px;
+            }
+
+            .resume-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .details-table .label-col {
+                width: 45%;
+            }
+
+            .signature-container {
+                flex-direction: column;
+                gap: 25px;
+                align-items: stretch;
+            }
+
+            .signature-right {
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Web Interactive Toolbar (Hidden in print) -->
+    <div class="toolbar">
+        <span class="toolbar-title">Srijon Chawley — Interactive CV</span>
+        <div class="actions">
+            <button class="btn btn-secondary" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: middle;">
+                    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+                </svg>
+                <span>Dark Mode</span>
+            </button>
+            <button class="btn btn-primary" onclick="window.print()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: middle;">
+                    <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                    <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+                </svg>
+                <span>Print / Save PDF</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Resume Container -->
+    <main class="resume-container">
+        
+        <!-- Header -->
+        <header class="resume-header">
+            <h1>Srijon Chawley</h1>
+            <div class="contact-divider"></div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-square"></span>
+                    <span class="contact-text">+91 7029301104</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-square"></span>
+                    <span class="contact-text">chawleysrijon@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-square"></span>
+                    <span class="contact-text">Jalalpur, Falta, South 24 Parganas, West Bengal</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Career Objective -->
+        <section class="resume-section">
+            <h2 class="section-title">Career Objective</h2>
+            <p class="objective-text">
+                Enthusiastic and dedicated B.Tech Computer Science Engineering (AI & ML) student with strong interest in programming, web development, and modern technologies. Seeking opportunities to improve technical skills and gain practical experience.
+            </p>
+        </section>
+
+        <!-- Educational Qualification -->
+        <section class="resume-section">
+            <h2 class="section-title">Educational Qualification</h2>
+            <table class="qualification-table">
+                <thead>
+                    <tr>
+                        <th>Qualification</th>
+                        <th>Board/University</th>
+                        <th>Year</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>B.Tech in CSE (AI & ML)</td>
+                        <td>The Neotia University</td>
+                        <td>Pursuing</td>
+                        <td>SGPA: 8.4</td>
+                    </tr>
+                    <tr>
+                        <td>Higher Secondary</td>
+                        <td>W.B.C.H.S.E</td>
+                        <td>2025</td>
+                        <td>65%</td>
+                    </tr>
+                    <tr>
+                        <td>Madhyamik</td>
+                        <td>W.B.B.S.E</td>
+                        <td>2023</td>
+                        <td>76%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="resume-section">
+            <h2 class="section-title">Technical Skills</h2>
+            <ul class="skills-list">
+                <li>C Programming</li>
+                <li>Java</li>
+                <li>HTML & CSS</li>
+                <li>R Programming</li>
+                <li>Basic Computer Applications</li>
+            </ul>
+        </section>
+
+        <!-- Personal Details -->
+        <section class="resume-section">
+            <h2 class="section-title">Personal Details</h2>
+            <table class="details-table">
+                <tbody>
+                    <tr>
+                        <td class="label-col">Father's Name</td>
+                        <td class="value-col">Pranab Kumer Chawley</td>
+                    </tr>
+                    <tr>
+                        <td class="label-col">Date of Birth</td>
+                        <td class="value-col">28 August 2007</td>
+                    </tr>
+                    <tr>
+                        <td class="label-col">Gender</td>
+                        <td class="value-col">Male</td>
+                    </tr>
+                    <tr>
+                        <td class="label-col">Marital Status</td>
+                        <td class="value-col">Single</td>
+                    </tr>
+                    <tr>
+                        <td class="label-col">Nationality</td>
+                        <td class="value-col">Indian</td>
+                    </tr>
+                    <tr>
+                        <td class="label-col">Religion</td>
+                        <td class="value-col">Hinduism</td>
+                    </tr>
+                    <tr>
+                        <td class="label-col">Languages Known</td>
+                        <td class="value-col">Bangla, English, Hindi</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Strengths -->
+        <section class="resume-section">
+            <h2 class="section-title">Strengths</h2>
+            <ul class="strengths-list">
+                <li>Quick Learner</li>
+                <li>Teamwork & Communication</li>
+                <li>Problem Solving Ability</li>
+                <li>Positive Attitude</li>
+            </ul>
+        </section>
+
+        <!-- Declaration -->
+        <section class="resume-section">
+            <h2 class="section-title">Declaration</h2>
+            <p class="declaration-text">
+                I hereby declare that the information furnished above is true and correct to the best of my knowledge and belief.
+            </p>
+            <div class="signature-container">
+                <div class="signature-left">
+                    <div>Place: Jalalpur</div>
+                    <div>Date: __________________</div>
+                </div>
+                <div class="signature-right">
+                    <span class="signature-line">Srijon Chawley</span>
+                    <span class="signature-subtext">(Signature)</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Simple and robust theme toggler for premium interaction
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const themeButton = document.getElementById('theme-toggle');
+            
+            if (currentTheme === 'dark') {
+                html.removeAttribute('data-theme');
+                themeButton.querySelector('span').textContent = 'Dark Mode';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                themeButton.querySelector('span').textContent = 'Light Mode';
+            }
+        }
+    </script>
+    <footer>
+        © 2026 Srijon Chawley | HTML & CSS Home page<br><br>
+    <a href="project2.html"><b><font color= blue>BACK TO THE FONTEND DEVOLOPER PAGE</a></font></b>
+    </footer>
+</body>
+</html>
